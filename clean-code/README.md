@@ -1,5 +1,12 @@
 
 
+	-------------------------------------------------------------------
+	Bad Smells in Code
+	-------------------------------------------------------------------
+	
+	with PPTs
+	
+	
 	Java Clean-code
 	=============================
 	
@@ -350,11 +357,6 @@
 	------------------------------------------------------------ 
 
 
-
-	
-
-
-
 	Source file basics
 	
 	----------------------------------------------------------------------			
@@ -376,6 +378,8 @@
 		Exactly one blank line separates each section that is present. 	
 		
 	----------------------------------------------------------------------
+	
+	Best Practices:
 	----------------------------------------------------------------------
 	
 	
@@ -416,4 +420,72 @@
 	
 	----------------------------------------------------------------------
 	
-	     					
+	4. Dilemma between Array and ArrayList
+	
+	
+	import java.util.ArrayList;
+	
+	public class arrayVsArrayList {
+	
+		public static void main(String[] args) {
+			int[] myArray = new int[6];
+			myArray[7]= 10; // ArraysOutOfBoundException
+	
+			//Declaration of ArrayList. Add and Remove of elements is easy.
+			ArrayList<Integer> myArrayList = new ArrayList<>();
+			myArrayList.add(1);
+			myArrayList.add(2);
+			myArrayList.add(3);
+			myArrayList.add(4);
+			myArrayList.add(5);
+			myArrayList.remove(0);
+			
+			for(int i = 0; i < myArrayList.size(); i++) {
+			System.out.println("Element: " + myArrayList.get(i));
+			}
+			
+			//Multi-dimensional Array 
+			int[][][] multiArray = new int [3][3][3]; 
+		}
+	}
+	
+	
+	----------------------------------------------------------------------
+	
+	5. Check Oddity
+	
+		public boolean oddOrNot(int num) {
+			return num % 2 == 1;
+		}
+		
+		vs.
+		
+		public boolean oddOrNot(int num) {
+			return (num & 1) != 0;
+		}
+		
+	----------------------------------------------------------------------
+	
+	
+	6. Avoiding Memory leaks by simple tricks
+		
+		Always release database connections when querying is complete.
+		Try to use Finally block as often possible.
+		Release instances stored in Static Tables.
+	
+	----------------------------------------------------------------------
+	
+	7. Reserve memory for Java
+	
+		export JAVA_OPTS=
+		"$JAVA_OPTS -Xms5000m -Xmx6000m -XX:PermSize=1024m 		-XX:MaxPermSize=2048m"
+	
+	----------------------------------------------------------------------
+	
+		
+			
+	
+	
+	
+	
+		     					
